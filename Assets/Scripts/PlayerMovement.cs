@@ -24,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
 
     private enum MovementState { idle, running, jumping, falling}
 
+    [SerializeField] private AudioSource jumpSoundEffect;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -50,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
                 // Vector2 is a vector for 2 values, x, y & z
                 // Instead of 0 for x, we set it to the previous frames velocity to make it smoother
                 GetComponent<Rigidbody2D>().velocity = new Vector2(rb.velocity.x, jumpForce);
+                jumpSoundEffect.Play();
             }
         UpdateAnimationState();
     }

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Player_Life : MonoBehaviour
 {
+    [SerializeField] private AudioSource deathSoundEffect;
     private Rigidbody2D rb;
     private Animator anim;
     private void Start()
@@ -16,7 +17,8 @@ public class Player_Life : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Trap"))
         {
-            Die();
+            Die();  
+            deathSoundEffect.Play();
         }
     }
 
