@@ -19,6 +19,7 @@ public class Player_Life : MonoBehaviour
         {
             Die();  
             deathSoundEffect.Play();
+            RestartLevel();
         }
     }
 
@@ -28,7 +29,7 @@ public class Player_Life : MonoBehaviour
         anim.SetTrigger("Death");
     }
 
-    private void RestartLevel()
+    public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

@@ -14,7 +14,6 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
 
     private bool canJump = true; // Flag to control jumping ability
-    private bool bonusJump = false; // Flag for bonus jump after collecting a pineapple
 
     public enum MovementState { idle, running, jumping, falling }
 
@@ -51,14 +50,13 @@ public class PlayerMovement : MonoBehaviour
             UnpauseGame();
         }
 
-        if (canJump || bonusJump)
+        if (canJump)
         {
             Jump();
-            bonusJump = false; // Reset bonus jump after using it
         }
     }
 
-    private void Jump()
+    public void Jump()
     {
         rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         jumpSoundEffect.Play();
@@ -76,11 +74,6 @@ public class PlayerMovement : MonoBehaviour
         {
             canJump = true; // Allow jumping again once grounded
         }
-    }
-
-    public void EnableBonusJump()
-    {
-        bonusJump = true; // Enable bonus jump when a pineapple is collected
     }
 
     private void UpdateAnimationState(float dirX)

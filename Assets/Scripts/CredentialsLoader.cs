@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 
 public class CredentialsLoader : MonoBehaviour
 {
-    private string encryptedAPIKey = "z7TeNGnxkMc3i+uqpaHniNg1M19TvUy6UVIpgMsMFdl2e/Dn91pzQtc5WrU28FVW";
+    private string encryptedAPIKey = "AIzaSyAD703naXf_JuT4-zkpy1KvUz1AJ95HJq8";
     private string secretKey = "444444444444444";
 
     // This method is public but it returns the decrypted API key only when called

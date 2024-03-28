@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class FinishLevel : MonoBehaviour
 {
     private AudioSource finishSoundEffect;
-    private bool levelCompleted = false;
+    public ItemCollector ItemCollector;
+    public bool levelCompleted = false;
     void Start()
     {
         finishSoundEffect = GetComponent<AudioSource>();
@@ -18,7 +19,8 @@ public class FinishLevel : MonoBehaviour
         {
             finishSoundEffect.Play();
             levelCompleted = true;
-            Invoke("CompleteLevel", 1.25f); // adds a delay to method being called. method must be in string format.
+            ItemCollector.AnalyzeUserResponses();
+            Invoke("CompleteLevel", 15.25f); // adds a delay to method being called. method must be in string format.
             // CompleteLevel();
         }
     }
