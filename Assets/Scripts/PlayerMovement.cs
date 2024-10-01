@@ -76,14 +76,23 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void UpdateAnimationState(float dirX)
-    {
-        MovementState state = dirX > 0f ? MovementState.running : dirX < 0 ? MovementState.running : MovementState.idle;
-        sprite.flipX = dirX < 0;
-        if (rb.velocity.y > .1f) state = MovementState.jumping;
-        else if (rb.velocity.y < -.1f) state = MovementState.falling;
-        anim.SetInteger("state", (int)state);
-    }
+private void UpdateAnimationState(float dirX)
+{
+    bool running = Mathf.Abs(dirX) > 0.1f;
+    // anim.SetBool("running", running); 
+
+    MovementState state;
+    if (rb.velocity.y > .1f)
+        state = MovementState.jumping;
+    else if (rb.velocity.y < -.1f)
+        state = MovementState.falling;
+    else
+        state = running ? MovementState.running : MovementState.idle;
+
+    sprite.flipX = dirX < 0;
+    anim.SetInteger("state", (int)state);
+}
+
 
     private void UnpauseGame()
     {

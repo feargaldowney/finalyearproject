@@ -25,7 +25,6 @@ public class MicrophoneInput : MonoBehaviour
             isRecording = false;
             Debug.Log("Recording stopped.");
             audioSource.clip = recording;
-            audioSource.Play();  // Optional: Play the audio to confirm it's working
         }
     }
 
