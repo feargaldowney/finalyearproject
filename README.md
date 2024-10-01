@@ -34,3 +34,7 @@ This array of incorrect words is emailed to the parent or guardian of the user, 
 This then allows the user to practice the words they struggled on with their parents.
 
 
+Feel free to test the app yourself on an android device. 
+Find more information along with the apk in my google drive:
+https://drive.google.com/drive/folders/1AdnWaEhcCy4CFHfg5Zn8AFaT1cycGLLD?usp=sharing
+
